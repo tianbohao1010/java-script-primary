@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .red{
+        background-color: red;
+    }
+
+    .yellow{
+        background-color: yellow;
+    }
+</style>
+<body>
+
+<input id="oBut1" type="button" value="+"/>
+<input id="oBut2" type="button" value="-"/>
+<input id="oBut3" type="button" value="红"/>
+<input id="oBut4" type="button" value="黄"/>
+
+<p id="oP1">
+    西安雁塔路某商场门前，一条印着“低头族专用通道”几个字的路，近日引来网友热议。
+    “低头族”是近几年才兴起的词语，意指长时间埋头玩手机的人，以年轻人居多。在街头划出一条专门的通道，支持者认为，这像是一种城市文化景观，变相提醒大家，放下手机，注意安全。而反对者则认为，此举完全没有必要。
+    昨天下午，三秦都市报记者来到现场。这条专门的通道为红蓝绿三色，长度近100米，宽约1米，标有双向箭头，印有手机的图案。
+    通道一侧，是商场的台阶，另一侧是露天停车场，几位保洁人员正在用水冲刷路面。
+    虽是工作日，但这里的行人挺多，也有不少人在此拍照。记者走上去体验了一下，因为是塑胶材质，踩起来挺舒服，像是塑胶操场的感觉。
+    “现在的‘低头族’太多了，出事的也多。我觉得这个挺好的，能提醒他们注意安全。”一位途经这里的市民说，应该为城市街头的这种创意点赞。
+</p>
+
+</body>
+
+<script>
+    var oBut1 = document.getElementById("oBut1");
+    var oBut2 = document.getElementById("oBut2");
+    var oBut3 = document.getElementById("oBut3");
+    var oBut4 = document.getElementById("oBut4");
+    var oP1 = document.getElementById("oP1");
+
+    var num = 15;
+
+    oBut1.onclick = function () {
+        num++;
+        oP1.style.fontSize = num + 'px';
+    };
+
+    oBut2.onclick = function () {
+        num--;
+        oP1.style.fontSize = num + 'px';
+    };
+
+    oBut3.onclick = function () {
+        oP1.className = 'red';
+    };
+
+    oBut4.onclick = function () {
+        oP1.className = 'yellow';
+    };
+</script>
+</html>
