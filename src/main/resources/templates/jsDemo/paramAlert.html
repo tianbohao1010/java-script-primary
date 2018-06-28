@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接受参数并弹出</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+
+    div{
+        display: inline-list-item;
+        margin: 0 auto;
+    }
+</style>
+<script>
+    window.onload = function (ev) {
+        var oInputs = document.getElementsByTagName('input');
+        var oShow = document.getElementById('show');
+
+        oShow.onclick = function (ev2) {
+            for(var i = 0; i<oInputs.length;i++){
+                if(oInputs[i].type == 'text'){
+                    alert(oInputs[i].value);
+                }
+            }
+        }
+    }
+</script>
+<body>
+    <div>
+        <p><input type="text" value="西安市"/></p>
+        <p><input type="text" value="未央区"/></p>
+        <p><input id="show" type="button" value="传参"/></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制div</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+
+    .lump{
+        width: 150px;
+        height: 100px;
+        background-color: black;
+        margin: 0 auto;
+        margin-top: 10px;
+        display: block;
+    }
+</style>
+
+<script>
+    var changeDiv =  function (elem,oAttr,oVal) {
+        elem.style[oAttr] = oVal;
+    };
+
+    window.onload = function(){
+        var oButs = document.getElementsByTagName('input');
+        var oDiv = document.getElementById('div1');
+
+        var oAttrs = ['width','height','backgroundColor','display','display'];
+        var oVals= ['200px','150px','red','none','block'];
+
+        for (var i = 0; i<oButs.length; i++){
+            oButs[i].index = i;
+
+            oButs[i].onclick = function () {
+
+                // this.index == oButs.length - 1 && (oDiv.style.cssText = '');
+                if(this.index == oButs.length - 1){
+                    oDiv.style.cssText = '';
+                }
+
+                changeDiv(oDiv,oAttrs[this.index],oVals[this.index]);
+            };
+        }
+    };
+</script>
+<body>
+    <div>
+        <input type="button" value="变宽"/>
+        <input type="button" value="变高"/>
+        <input type="button" value="变色"/>
+        <input type="button" value="隐藏"/>
+        <input type="button" value="重置"/>
+    </div>
+
+    <div id="div1" class="lump"></div>
+</body>
+</html>

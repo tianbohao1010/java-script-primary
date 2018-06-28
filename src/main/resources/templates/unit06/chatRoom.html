@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHAT ROOM</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        background-color: black;
+    }
+
+    #door{
+        margin: 0 auto;
+        background-color: white;
+        height: 600px;
+        width: 400px;
+    }
+
+    #pilot{
+        height: 20px;
+        width: 400px;
+        text-align: right;
+    }
+
+    #alternately{
+        text-align: left;
+        height: 540px;
+        width: 400px;
+        border: 1px solid black;
+    }
+
+    #prepare{
+        text-align: left;
+        height: 40px;
+        width: 400px;
+    }
+
+    img{
+        width: 20px;
+        height: 20px;
+    }
+</style>
+<script>
+
+    var flag = true;
+
+    window.onload = function (ev) {
+        var oImg = document.getElementById('img');
+        var oBtn = document.getElementById('button1');
+        var oBtn2 = document.getElementById('button2');
+        var oText = document.getElementById('text1');
+
+        var oAlias = document.getElementById('alias');
+        var oAlter = document.getElementById('alternately');
+
+        oImg.onclick = function () {
+            if(flag){
+                oImg.src = '../../static/css/img/img02.jpg';
+                flag = false;
+            }else {
+                oImg.src = '../../static/css/img/img01.jpg';
+                flag = true;
+            }
+        }
+
+        oBtn.onclick = function(){
+            oAlter.innerHTML += oAlias.innerText + ": " + oText.value +"<br/>";
+            oText.value = '';
+        }
+
+        oBtn2.onclick = function () {
+            oAlias.innerHTML = '<strong>'+oText.value+'</strong>';
+            oText.value = '';
+        }
+    }
+
+</script>
+<body>
+    <div id="door">
+        <!--聊天室导航栏-->
+        <div id="pilot">
+            <p id="alias"><strong>二营长</strong></p>
+        </div>
+        <!--聊天-->
+        <div id="alternately"></div>
+        <!--消息准备-->
+        <div id="prepare">
+            <img id="img" src="../../static/css/img/img01.jpg"/>
+            <input id="text1" type="text"/>
+            <input id="button1" type="button" value="发送"/>
+
+            <input id="button2" type="button" value="修改昵称"/>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用循环更改DIV颜色</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+
+    .block{
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        background-color: black;
+
+        margin: 0 auto 10px;
+        /*float: left;*/
+    }
+</style>
+<script>
+    window.onload = function (ev) {
+        var oInput = document.getElementById('change');
+        var oDivs = document.getElementsByClassName('block');
+
+        oInput.onclick = function (ev2) {
+            for (var i =0; i<oDivs.length; i++){
+                oDivs[i].style.backgroundColor = 'red';
+            }
+        };
+    }
+</script>
+<body>
+    <p><input id="change" type="button" value="点击DIV将变色"/></p>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+</body>
+</html>

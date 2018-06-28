@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入移出改变样式</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    div{
+        width: 200px;
+        height: 200px;
+        border: black 10px;
+        background-color: black;
+        margin: 0 auto;
+    }
+
+    p{
+        color: white;
+        font-size: 5px;
+        padding: 10px;
+    }
+
+    .redSkin{
+        width: 200px;
+        height: 200px;
+        background-color: gray;
+        border: red 10px;
+
+        margin: 0 auto;
+    }
+</style>
+<script>
+    window.onload = function (ev) {
+        var oDiv = document.getElementById('div1');
+        var oP = document.getElementsByTagName('p');
+
+        oDiv.onmouseover = function () {
+            oDiv.className = 'redSkin';
+        }
+
+        oDiv.onmouseout = function () {
+            oDiv.className = '';
+        }
+    }
+</script>
+<body>
+    <div id="div1">
+        <p>鼠标移入改变样式，移出则恢复</p>
+    </div>
+</body>
+</html>
