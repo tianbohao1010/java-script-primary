@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换图片</title>
+</head>
+<style>
+    body{
+        background-color: dimgray;
+    }
+    ul{
+        padding: 0px;
+        margin: 0px;
+    }
+    li{
+        list-style: none;
+    }
+    #pic {
+        width: 400px;
+        height: 500px;
+        background: url(/Users/ton/IdeaProjects/ton/gitHub/exercise/java-script-primary/src/main/resources/static/css/img/loader_ico.gif) no-repeat center white;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    #pic img{
+        width: 400px;
+        height: 500px;
+    }
+
+    #pic ul{
+        position: absolute;
+        top: 0px;
+        right: -50px;
+    }
+
+    #pic li{
+        width: 40px;
+        height: 40px;
+        background: black;
+        margin-bottom: 4px;
+    }
+
+    #pic .active{
+        background: #FC3;
+    }
+
+    #pic span{
+        top: 0px;
+    }
+
+    #pic p{
+        bottom: 0px;
+        margin: 0px;
+    }
+
+    #pic p,#pic span{
+        position: absolute;
+        width: 400px;
+        height: 30px;
+        line-height: 30px;
+        background: black;
+        text-align: center;
+        color: white;
+    }
+
+</style>
+<script>
+    window.onload = function () {
+        var oSpan = document.getElementsByTagName('span')[0];
+        var oP = document.getElementsByTagName('p')[0];
+        var oImg = document.getElementsByTagName('img')[0];
+        var oUl = document.getElementsByTagName('ul')[0];
+        var oLi = oUl.getElementsByTagName('li');
+        var arrImgs = ['../../static/css/img/img01.jpg','../../static/css/img/img02.jpg'
+            ,'../../static/css/img/img03.jpg','../../static/css/img/img04.jpg'];
+        
+        var arrText = ['图一','图二','图三','图四'];
+        var num = 0;
+        var oldLi = null;
+
+        for(var i = 0; i < arrImgs.length; i++){
+            oUl.innerHTML += '<li></li>';
+        }
+
+        oldLi = oLi[num];
+        oldLi.className = 'active';
+        function draw(index) {
+            oImg.src = arrImgs[index];
+            oSpan.innerHTML = 1 + index + ' / ' + arrImgs.length;
+            oP.innerHTML = arrText[index];
+        };
+
+        //初始化
+        draw(num);
+
+        for(var i = 0; i<oLi.length; i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function () {
+                draw(this.index);
+
+                oldLi.className = '';
+                oldLi = this;
+                this.className = 'active';
+            }
+        };
+
+    }
+
+</script>
+<body>
+<div id="pic">
+    <span>数据加载中··· ···</span>
+    <p>图片加载中··· ···</p>
+    <img src="../../static/css/img/img01.jpg"/>
+
+    <ul></ul>
+</div>
+</body>
+</html>

@@ -45,11 +45,12 @@
 
     var flag = true;
 
-    window.onload = function (ev) {
+    window.onload = function () {
         var oImg = document.getElementById('img');
         var oBtn = document.getElementById('button1');
         var oBtn2 = document.getElementById('button2');
         var oText = document.getElementById('text1');
+
 
         var oAlias = document.getElementById('alias');
         var oAlter = document.getElementById('alternately');
@@ -60,19 +61,20 @@
                 flag = false;
             }else {
                 oImg.src = '../../static/css/img/img01.jpg';
+
                 flag = true;
             }
-        }
+        };
 
         oBtn.onclick = function(){
             oAlter.innerHTML += oAlias.innerText + ": " + oText.value +"<br/>";
             oText.value = '';
-        }
+        };
 
         oBtn2.onclick = function () {
             oAlias.innerHTML = '<strong>'+oText.value+'</strong>';
             oText.value = '';
-        }
+        };
     }
 
 </script>
